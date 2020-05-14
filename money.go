@@ -29,12 +29,12 @@ type Currency struct {
 }
 
 type Money struct {
-	Currency *Currency
+	Currency
 	Value int64
 }
 
-var Currencies = map[string]*Currency{
-	"EUR": &Currency{
+var Currencies = map[string]Currency{
+	"EUR": Currency{
 		Code:   "EUR",
 		Symbol: "€",
 		Format: "$1",

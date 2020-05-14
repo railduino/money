@@ -26,7 +26,7 @@ import (
 )
 
 func (m Money) MarshalJSON() ([]byte, error) {
-	data := fmt.Sprintf("%s %d", m.Code, m.Value)
+	data := fmt.Sprintf("%s %d", m.Currency.Code, m.Value)
 
 	return json.Marshal(data)
 }
