@@ -34,7 +34,7 @@ func (m *Money) UnmarshalJSON(data []byte) error {
 		return err
 	}
 
-	*m = *res
+	*m = res
 
 	return nil
 }
