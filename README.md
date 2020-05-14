@@ -1,2 +1,2 @@
-# euromoney
-Handling Euros and Cents
+# money
+Handling Euros and Cents (for now)
