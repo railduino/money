@@ -29,7 +29,7 @@ type Currency struct {
 }
 
 type Money struct {
-	Currency
+	Currency *Currency
 	Value int64
 }
 
