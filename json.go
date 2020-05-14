@@ -22,7 +22,6 @@ package money
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 func (m Money) MarshalJSON() ([]byte, error) {
