@@ -25,7 +25,9 @@ import ()
 type Currency struct {
 	Code   string
 	Symbol string `json:"-"`
-	Format string `json:"-"`
+	Sample string `json:"-"`
+	Point  string `json:"-"`
+	Group  string `json:"-"`
 }
 
 type Money struct {
@@ -37,7 +39,9 @@ var Currencies = map[string]Currency{
 	"EUR": Currency{
 		Code:   "EUR",
 		Symbol: "€",
-		Format: "$1",
+		Sample: "$1",
+		Point:  ",",
+		Group:  ".",
 	},
 	// Add more currencies here
 }

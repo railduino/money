@@ -26,29 +26,16 @@ import (
 )
 
 func (m Money) MarshalJSON() ([]byte, error) {
-	data := fmt.Sprintf("%s %d", m.Currency.Code, m.Value)
-
-	return json.Marshal(data)
+	return json.Marshal(m)
 }
 
 func (m *Money) UnmarshalJSON(data []byte) error {
-	var buf string
-	if err := json.Unmarshal(data, &buf); err != nil {
+	var res Money
+	if err := json.Unmarshal(data, &res); err != nil {
 		return err
 	}
 
-	var code string
-	var value int64
-	cnt, err := fmt.Sscanf(buf, "%s %d", &code, &value)
-	if err != nil {
-		return err
-	}
-	if cnt != 2 {
-		return fmt.Errorf("invalid money value")
-	}
-
-	obj := New(code, value)
-	*m = *obj
+	*m = *res
 
 	return nil
 }

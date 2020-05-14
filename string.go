@@ -24,6 +24,22 @@ import (
 	"fmt"
 )
 
-func (rcv *Money) String() string {
-	return fmt.Sprintf("%d", rcv.Value)
+func abs(n int64) int64 {
+	if n < 0 {
+		return -n
+	}
+	return n
+}
+
+func (m *Money) String() string {
+	c := m.Currency
+	major := m.Value / 100
+	minor := abs(m.Value % 100)
+	value := fmt.Sprintf("%d%s%02d", major, c.Point, minor)
+
+	data := c.Sample
+	data = strings.Replace(data, "$", c.Symbol, 1)
+	data = strings.Replace(data, "1", value, 1)
+
+	return data
 }
